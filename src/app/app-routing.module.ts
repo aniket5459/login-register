@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { CovidComponent } from './covid/covid.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 
@@ -9,7 +10,6 @@ const routes: Routes = [
     redirectTo:'/login' ,
     pathMatch:'full'
   },
-
   {
     path:'login',
     component: LoginComponent
@@ -17,6 +17,10 @@ const routes: Routes = [
   {
     path:'register',
     component: RegisterComponent
+  },
+  {
+    path: 'covid',
+    component: CovidComponent
   }
 ];
 
