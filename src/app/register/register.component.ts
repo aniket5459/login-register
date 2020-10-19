@@ -22,6 +22,7 @@ export class RegisterComponent implements OnInit {
   displayLoader = false;
   success = false;
   failure = false;
+  topicHasError=true;
 
   ngOnInit() {}
 
@@ -39,6 +40,13 @@ export class RegisterComponent implements OnInit {
     });
 
     data.reset();
+  }
+  validateTopic(value){
+    if (value==='default'){
+      this.topicHasError=true;
+    }else{
+      this.topicHasError=false;
+    }
   }
 
   removeAlert() {

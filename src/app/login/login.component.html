@@ -28,7 +28,13 @@
             required
             minlength="7"
             maxLength="7"
+            #stnum="ngModel"  [class.is-invalid]="stnum.invalid && stnum.touched" pattern="^\d{7}$"
           />
+          <div *ngIf="stnum.errors && (stnum.invalid && stnum.touched)">
+            <small class="text-danger" *ngIf="stnum.errors.required">Student number is required!</small>
+            <small class="text-danger" *ngIf="stnum.errors.pattern">Student number must be of 7 digits!</small>
+
+          </div>
         </div>
       </div>
       <div class="form-row">
@@ -41,8 +47,14 @@
             name="password"
             [(ngModel)]="password"
             placeholder="Enter password"
+            #pw="ngModel" [class.is-invalid]="pw.invalid && pw.touched" pattern="\d{6}$"
             required
           />
+          <div *ngIf="pw.errors && (pw.invalid && pw.touched)">
+            <small class="text-danger" *ngIf="pw.errors.required">Password is required!</small>
+            <small class="text-danger" *ngIf="pw.errors.pattern">Password must be of 6 digits!</small>
+
+          </div>
         </div>
       </div>
       <div class="form-row">
