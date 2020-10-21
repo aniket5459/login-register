@@ -7,6 +7,7 @@ import {
 import { Observable } from "rxjs";
 import { catchError } from "rxjs/operators";
 import {cData} from "./cData";
+import {Router} from "@angular/router"
 
 @Injectable({
   providedIn: 'root'
@@ -17,7 +18,7 @@ export class BackendService {
   private covidUrl = "https://coronavirus-19-api.herokuapp.com/countries";
 
 
-  constructor(private http:HttpClient) { }
+  constructor(private http:HttpClient,private _router:Router) { }
 
   public register(formData): Observable<any> {
     return this.http
@@ -35,7 +36,14 @@ export class BackendService {
   {
     return this.http.get<cData[]>(this.covidUrl);
   }
-  
+  loggedIn(){
+    return !!localStorage.getItem('token')
+  }
+  loggedOut(){
+  localStorage.removeItem('token')
+  this._router.navigate(['/login'])
+  }
+
   public handleError(error: HttpErrorResponse) {
     return error.status.toString();
   }

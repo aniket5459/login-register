@@ -9,6 +9,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { LoaderComponent } from './loader/loader.component';
 import { CovidComponent } from './covid/covid.component';
 import { NgxPaginationModule} from 'ngx-pagination';
+import { AuthGuard } from './auth.guard';
 
 
 @NgModule({
@@ -27,7 +28,7 @@ import { NgxPaginationModule} from 'ngx-pagination';
     HttpClientModule,
     NgxPaginationModule
   ],
-  providers: [],
+  providers: [AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -15,6 +15,8 @@ export class LoginComponent implements OnInit {
   formData: any;
   displayLoader = false;
   failure = false;
+  
+  
 
   ngOnInit() {}
 
@@ -24,6 +26,8 @@ export class LoginComponent implements OnInit {
     this.failure = false;
     this.backend.login(this.formData).subscribe((res) => {
       this.displayLoader = false;
+      console.log(res)
+      localStorage.setItem('token' , res.body.token)
       if (res.status == 200) {
         this.router.navigateByUrl('/covid');
       } else {
