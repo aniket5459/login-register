@@ -1,6 +1,8 @@
 /* You can add global styles to this file, and also import other style files */
 body {
-    background-color: teal;
+    background-image:url("https://www.paho.org/sites/default/files/styles/flexslider_full/public/2020-03/blue-covid-banner.jpg?h=96546727&itok=cZemcbKa") ;
     color: white;
     font-family: 'Nunito', sans-serif;
+    background-size: cover;
+    background-repeat: no-repeat;
 }
